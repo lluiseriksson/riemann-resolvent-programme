@@ -59,6 +59,9 @@ via `sup |S_j − 𝒮_Ξ| ≤ sup |S_j − P_{X_j}| + X_j^{−δ}(log X_j/δ + 
 | `riemannHypothesis_of_primeResolventApproximation` | **assembly proved**; carried inputs: `bridgeC`, `bridgeA` |
 | `bridgeA`, `bridgeC`, tasks T1–T4, `primeTail_bound` | **frontier** — see `HYPOTHESIS_FRONTIER.md` and `ROADMAP.md`; never encoded as vacuous `Prop`s |
 
+For exact mother-facing import names and consumption rules, see
+[`docs/MOTHER_INTERFACE_DIGEST.md`](docs/MOTHER_INTERFACE_DIGEST.md).
+
 Axiom audit: every public declaration depends only on `propext`,
 `Classical.choice`, `Quot.sound` (`scripts/check_axioms.sh`, repeated in CI).
 
