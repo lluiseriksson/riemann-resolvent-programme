@@ -1,10 +1,10 @@
 # Mother Interface Digest
 
 Snapshot: v0.1.0 interface, last audited against public `main` HEAD
-`4f7943670c495a2405fd5bedbcea674165f67dad`.
+`c7c686f811fe5ceab17452a2d54792b70f8892b9`.
 
 CI heartbeat for that audited HEAD: workflow `ci`, run
-`28742950741`, conclusion `success` on 2026-07-05.
+`28745433654`, conclusion `success` on 2026-07-05.
 
 Purpose: give THE-ERIKSSON-PROGRAMME and the knowledge-tree tooling a
 small, exact interface map for this sibling repository. This is an
