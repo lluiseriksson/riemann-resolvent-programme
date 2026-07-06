@@ -2,16 +2,16 @@
   "schema": "riemann-resolvent-programme.status.v1",
   "repository": "lluiseriksson/riemann-resolvent-programme",
   "default_branch": "main",
-  "audited_at": "2026-07-06T20:45:09+02:00",
+  "audited_at": "2026-07-06T21:51:15+02:00",
   "public_head": {
-    "sha": "72b898caf20566e1e72497ab8737e63fdf22225d",
-    "subject": "Refresh mother-facing status heartbeat (#36)"
+    "sha": "d8b25166165b72a3608fe121cfa1811484c0701e",
+    "subject": "Refresh status heartbeat (#37)"
   },
   "ci": {
     "workflow": "ci",
-    "run_id": 28812037413,
+    "run_id": 28816133367,
     "conclusion": "success",
-    "url": "https://github.com/lluiseriksson/riemann-resolvent-programme/actions/runs/28812037413"
+    "url": "https://github.com/lluiseriksson/riemann-resolvent-programme/actions/runs/28816133367"
   },
   "lean_entrypoint": "import RiemannResolvent",
   "public_interfaces": {
