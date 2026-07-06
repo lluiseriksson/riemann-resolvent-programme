@@ -2,16 +2,16 @@
   "schema": "riemann-resolvent-programme.status.v1",
   "repository": "lluiseriksson/riemann-resolvent-programme",
   "default_branch": "main",
-  "audited_at": "2026-07-06T18:32:40+02:00",
+  "audited_at": "2026-07-06T19:39:46+02:00",
   "public_head": {
-    "sha": "b064d4d588bdca98928b8f6f3e03d21792e83225",
-    "subject": "Refresh mother digest heartbeat (#34)"
+    "sha": "abf34e8c7356c6a55646fd5d75a3db83f50e99ec",
+    "subject": "Add mother-facing status snapshot (#35)"
   },
   "ci": {
     "workflow": "ci",
-    "run_id": 28803250423,
+    "run_id": 28807812426,
     "conclusion": "success",
-    "url": "https://github.com/lluiseriksson/riemann-resolvent-programme/actions/runs/28803250423"
+    "url": "https://github.com/lluiseriksson/riemann-resolvent-programme/actions/runs/28807812426"
   },
   "lean_entrypoint": "import RiemannResolvent",
   "public_interfaces": {
