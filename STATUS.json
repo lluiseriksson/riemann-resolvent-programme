@@ -1,0 +1,64 @@
+{
+  "schema": "riemann-resolvent-programme.status.v1",
+  "repository": "lluiseriksson/riemann-resolvent-programme",
+  "default_branch": "main",
+  "audited_at": "2026-07-06T18:32:40+02:00",
+  "public_head": {
+    "sha": "b064d4d588bdca98928b8f6f3e03d21792e83225",
+    "subject": "Refresh mother digest heartbeat (#34)"
+  },
+  "ci": {
+    "workflow": "ci",
+    "run_id": 28803250423,
+    "conclusion": "success",
+    "url": "https://github.com/lluiseriksson/riemann-resolvent-programme/actions/runs/28803250423"
+  },
+  "lean_entrypoint": "import RiemannResolvent",
+  "public_interfaces": {
+    "programme_objects": [
+      "RiemannResolvent.riemannXi",
+      "RiemannResolvent.xiResolventTarget",
+      "RiemannResolvent.SlitPlaneStieltjesExtension",
+      "RiemannResolvent.PrimeResolventData"
+    ],
+    "assemblies": [
+      "RiemannResolvent.riemannHypothesis_of_slitPlaneExtension",
+      "RiemannResolvent.riemannHypothesis_of_primeResolventApproximation"
+    ],
+    "hankel_falsifier_support": [
+      "RiemannResolvent.atomicMoment",
+      "RiemannResolvent.hankelForm",
+      "RiemannResolvent.hankelForm_atomic_eq_sum_sq",
+      "RiemannResolvent.hankelForm_nonneg_of_atomic",
+      "RiemannResolvent.theta_shift_eq_atomicMoment",
+      "RiemannResolvent.hankelForm_theta_nonneg_of_support",
+      "RiemannResolvent.hankelForm_nonneg_of_zeroModel",
+      "RiemannResolvent.hankelForm_L_nonneg_of_zeroModel"
+    ]
+  },
+  "carried_inputs_not_discharged": [
+    "bridgeA",
+    "bridgeC",
+    "primeTail_bound",
+    "T1",
+    "T2",
+    "T3",
+    "T4"
+  ],
+  "mother_consumption": {
+    "relation": "shares_method_only",
+    "dependency_direction": "do_not_import_into_THE-ERIKSSON-PROGRAMME",
+    "digest": "docs/MOTHER_INTERFACE_DIGEST.md"
+  },
+  "verification_commands": [
+    "lake build",
+    "./scripts/check_axioms.sh",
+    "! grep -rnE \"\\bsorry\\b|\\badmit\\b|\\bnative_decide\\b\" --include=\"*.lean\" RiemannResolvent RiemannResolvent.lean"
+  ],
+  "claims": {
+    "rh": false,
+    "yang_mills": false,
+    "operator_construction": false,
+    "bridge_discharge": false
+  }
+}
