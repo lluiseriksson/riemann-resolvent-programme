@@ -1,10 +1,10 @@
 # Mother Interface Digest
 
 Snapshot: v0.1.0 interface, last audited against public `main` HEAD
-`1109484b3dbd5b4ed49e0405e7c7a3c0c5043ddc`.
+`a6eba005a18bdaa3cbbd0803451762a2f07fe7a8`.
 
 CI heartbeat for that audited HEAD: workflow `ci`, run
-`28823845695`, conclusion `success` on 2026-07-06.
+`28827473974`, conclusion `success` on 2026-07-06.
 
 Machine-readable companion: `STATUS.json`.
 
