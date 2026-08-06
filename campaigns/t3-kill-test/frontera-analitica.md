@@ -561,3 +561,67 @@ prueba una falsedad ⟹ está mal. G₂ (libre de ceros, batería falsa, sin FE)
 mata argumentos que corran en secreto sobre positividad de log-derivada
 sola. La comprobación de que la reflexión es genuinamente INASEQUIBLE para
 el falsificado (no meramente no-usada) es la obligación del auditor.
+
+## La sexta forma terminal: la familia (RW) resolvente–Weil — auditada 2026-08-06
+
+Formulada por Codex, verificada adversarialmente (CORRECT_WITH_CAVEATS;
+reparaciones incorporadas). El libro queda:
+(TP) ↔ (RATE) ↔ det ↔ (MC) ↔ (SC) ↔ **(RW)**.
+
+**Pieza Koszul (correcta, y RESPONDE la reparación de pares):** con
+V_{m,p} = span{e_q : q ∈ P(m)∖{p}} y Q = e(v)∧ con v = Σe_q, el
+anticonmutador de Clifford e(v)ι(w) + ι(w)e(v) = ⟨v,w⟩I da la homotopía
+h = ι_v/⟨v,v⟩ (⟨v,v⟩ = ω−1 > 0 para ω ≥ 2): Qh + hQ = I, complejo
+contráctil, y Str(I_{Λ•V}) = (1−1)^{ω−1}. **La supertraza sobre el álgebra
+exterior ES la forma libre-de-base de la reparación de pares conjugados**
+(Str(Λ•A) = det(I−A) en A = I) — no una rival. Los 9 círculos = 3 raíces +
+6 generadores (k² con k = 3), leídos como tres 2-cubos booleanos cuyos
+vértices son los subconjuntos; "las dimensiones ocultas son grados
+homológicos, no dimensiones espaciales" — la traducción honesta definitiva
+de toda la intuición dimensional del carril. El vestido sigue cargando cero
+aritmética: diccionario, no mecanismo.
+
+**Pieza Bessel/abscisa (correcta, con convención por fijar):** w_{n,k,a} es
+autovalor-a-autovalor el integrando de la identidad (MC) depositada
+(x₀ = a²). La fórmula K-Bessel es EXACTA en la convención no-unitaria
+ĝ(γ) = ∫g(u)e^{−iγu}du — LA CONVENCIÓN DEBE FIJARSE (en la unitaria cambia
+por √(2π)); verificada analíticamente en r = 1,2 y numéricamente a 30
+dígitos (5/5). g_{n,k,a} = e^{−a|u|}P_{n,k,a}(|u|) con polinomio explícito
+(el polinomio 1/z de K_{m+1/2} se cancela exactamente contra el prefactor).
+**La coincidencia de abscisas es el MISMO hecho clásico visto TRES veces**,
+no una coincidencia estructural nueva: a > 1/2 ⟺ convergencia absoluta del
+lado primo (Re s > 1) ⟺ admisibilidad (los polos ±ia de w fuera de la banda
+|Im γ| ≤ 1/2) ⟺ x₀ > (1/2)² el peor desplazamiento cuadrado. La (H₀) lo
+remacha: el 1/4 no es intrínseco al criterio (que vale en x₀ > 0), es
+intrínseco al EMPAQUETADO Weil.
+
+**La familia (RW), verificada en ambas direcciones con las hipótesis
+nombradas:** (RW)_{n,k}: A_{∞,n,k}(a) − 2Σ_{m≥2}Λ(m)m^{−1/2}g_{n,k,a}(log m) ≥ 0.
+La identificación del lado de ceros Σ_ρ ĝ(γ_ρ) = Σ_ρ w(γ_ρ) = D^k b_n(x₀)
+es **INCONDICIONAL** (convergencia absoluta O(|γ|^{−2(n+1)}) en la banda +
+producto de Hadamard — no presupone γ real; γ real compra solo la
+no-negatividad término a término). Ida: (RW)∀ + fórmula explícita ⟹ batería
+⟹ RH por el criterio en x₀ = a² > 1/4. Vuelta: RH ⟹ términos ≥ 0 ⟹ (RW).
+HIPÓTESIS EN TINTA: (a) clase de test — e^{−a|u|}poly es par, continua, BV,
+con esquina en 0 tolerada, admisible para Weil/Barner exactamente si
+a > 1/2 — la hipótesis de regularidad se declara, no se usa en silencio;
+(b) POLOS: w(±i/2) = a^{2n}(−1/4)^k/(a²−1/4)^{n+k+1} es finito para a > 1/2
+pero con signo (−1)^k — DEBE plegarse en A_∞ (la reparación OS-Ward
+aplicada; con el plegado declarado, (RW) es la fórmula explícita
+correctamente reordenada); (c) ALCANCE: la familia (RW) se afirma solo para
+x₀ > 1/4; en x₀ ≤ 1/4 la batería sigue siendo RH-equivalente por (H₀) pero
+su sombra Weil no es absolutamente convergente — sin contradicción, el
+alcance se imprime.
+
+**Calibración de honestidad:** sexta forma equivalente — cada (RW)_{n,k} es
+D^k b_n ≥ 0 reescrito por la fórmula explícita. El afilado genuino y
+modesto: la positividad de Weil restringida a una familia NUMERABLE y
+totalmente explícita de tests exponencial-polinómicos en UN solo a > 1/2 ya
+es RH-equivalente — el pegamento deja de ser una clase vaga. El candidato
+eureka (cono de A_a: H_primos → H_theta, contractividad sobre la base
+g_{n,k,a} ⟺ W ≥ 0) es el pegamento OS-Ward re-expresado en esta base, con
+la advertencia de circularidad correcta (definir A_a por los ceros o por el
+funcional de Weil sería circular) y el protocolo falsificador G₂/DMV
+aplicando verbatim. El contenido — la cancelación firmada que probaría
+cualquier (RW)_{n,k} incondicionalmente — se mueve cero milímetros y sigue
+gobernado por la barrera.
