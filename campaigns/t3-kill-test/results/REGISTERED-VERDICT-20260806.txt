@@ -1,0 +1,65 @@
+# VEREDICTO REGISTRADO DE LA CAMPAÑA T3 — plano Colab, 2026-08-06
+# Probe: sha256 b173fec9e6dc8447f99c7e6a79abfe1eede38d418de4ee90f64eccf849d87b34
+# REG (jueces): 215ba8033b77c03d5948da990197862eb8fcaa3548ee527b354ea093d8c1955c
+# Runtime CPU: abierto 07:43, parrilla 4h, testigos 13:12-15:13.
+# ESTATUS DE ESTA EVIDENCIA: transcripción verbatim de la salida en pantalla del
+# plano (la descarga del zip t3-kill-test-results-20260806-130947.zip NO aterrizó
+# en el escritorio; el zip queda en el runtime y los 32 checkpoints son
+# reproducibles con el probe registrado + --force). Etiqueta: verificado
+# (numérico), transcrito de pantalla, NO artefacto crudo.
+
+== T3 probe grid table [conv:S-half, x0=1] ==
+ lambda    N   status  n_spur  S_low  S_IR                B_zero              E                     J1    S_tail(UV)
+      2   20   OK        0     0.0    0.0152631463927862  0.0166330008714309  -0.00136985447864476  PASS  0.00237407540530523
+      2   40   OK        0     0.0    0.0164592050988183  0.0192375208501584  -0.0027783157513401   PASS  0.00120190404817089
+      2   80   OK        0     0.0    0.017069203794276   0.0208474840177456  -0.00377828022346957  PASS  0.000604712052136434
+      2  120   OK        0     0.0    0.0172722496955255  0.0214684461271812  -0.00419619643165571  PASS  0.000403981197361701
+  sqrt8   20   OK        0     0.0    0.0153845912754201  0.0144620262681169   0.000922565007303125 PASS  0.00534141214951201
+  sqrt8   40   OK        0     0.0    0.0177744894284352  0.0178223759072223  -4.78864787871274e-5  PASS  0.00270425067725099
+  sqrt8   80   OK        0     0.0    0.0191192860320453  0.0200094426547465  -0.000890156622701202 PASS  0.00136059785891023
+  sqrt8  120   OK        0     0.0    0.0195727384220234  0.0208474840177456  -0.00127474559572212  PASS  0.000908956424382608
+      3   20   OK        0     0.0    0.0153427499389986  0.0141781830470594   0.00116456689193926  PASS  0.00596358158490191
+      3   40   INVALID   0     0.0    0.0176139437736721  0.0176774942742455  -6.35505005733642e-5  PASS  0.00301926537352993   [count_mismatch:39!=40]
+      3   80   INVALID   0     0.0    0.0191126136363354  0.0198646412983278  -0.00075202766199244  PASS  0.00151909510086917   [count_mismatch:79!=80]
+      3  120   INVALID   0     0.0    0.019618915575944   0.020751097668885   -0.00113218209294099  PASS  0.00101484192693435   [count_mismatch:119!=120]
+ sqrt13   20   OK        0     0.0    0.0151829454388371  0.0131046747922003   0.00207827064663686  PASS  0.00812644495092479
+ sqrt13   40   OK        0     0.0    0.0175899691825784  0.0169702781280123   0.000619691054566085 PASS  0.00411439577958347
+ sqrt13   80   OK        0     0.0    0.0194307648822061  0.0194624929773305  -3.17280951243702e-5  PASS  0.00207010638743875
+ sqrt13  120   OK        0     0.0    0.0201183280373163  0.0204444132016764  -0.00032608516436013  PASS  0.00138295055249288
+anchor S_Xi(x0=1) = 0.0230679640302313 [verified numerics]
+
+T3-VERDICT: INCONCLUSIVE conv=S-half;x0=1;grid=L{2,sqrt8,3,sqrt13}xN{20,40,80,120} detail={"invalid": ["3:40", "3:80", "3:120"], "missing": [], "reason": "grid incomplete or J2 fail"}
+SCOPE: a KILL kills the repo's concrete T3 arm as instantiated (CCM D_log^{(lambda,N)}, IR trace, probed box); it does NOT refute the CCM papers' own claims, RH, or the abstract core.
+(Re-impresión posterior a los testigos: idéntica.)
+
+== TESTIGO A4 (completitud polinómica, (3, N=40)) ==
+[base dps=149] A4-SCANLIST: 39 zeros; msamp=9 refine_rounds=2 msamp_eff=144 dedup_tol=0.0049303463 zmax=1612.01457375
+[hi   dps=209] A4-SCANLIST: 40 zeros; msamp=17 refine_rounds=2 msamp_eff=272 dedup_tol=0.0026186821
+A4-COMPARE: [base] matched 39/40 polynomial positive roots; reverse check: 0 spurious
+A4-COMPARE: [hi]   matched 40/40; reverse check: 0 spurious
+A4-CAUSE: [base] missed root z=82.9103880394950605403553 (nearest scan hit 84.7355271767231645486642 at dist 1.8251; nearest other poly root at 1.8251) => BASE-RESOLUTION
+A4-COMPLETENESS: [base] degree 80; 80 roots; 80 real to imag_tol_rel=1e-15; 40 positive / 40 negative; P(0) nonzero; polyroots err 2.2444e-190; Newton rel resid 0.0
+A4-COMPLETENESS: [hi]   degree 80; 80 roots; 80 real; 40 positive / 40 negative; polyroots err 2.7934e-250; Newton rel resid 0.0
+A4-NEWTON: sum s^2 from roots = 317780.385379302; Newton identity = 317780.385379302; rel resid = 0.0
+A4-DONE: base 99.4s, hi 132.0s; gated nothing, wrote no checkpoint.
+
+== TESTIGO MC (momentos resolventes, n=0..8) ==
+MC-WITNESS DONE: 36 replica(s) witnessed, n=0..8; this pass gated nothing and wrote nothing
+Ejemplo (lam=sqrt8 N=80 hi): n=3 diff -2.0e-16; n=4 -1.7e-20; n=5 -1.6e-24; n=6 -1.7e-28;
+n=7 -1.7e-32; n=8 +2.3e-37 — los momentos altos pesan los ceros bajos y concuerdan a
+decenas de dígitos. Tendencias en n bajos: mixtas, registradas descriptivamente.
+REGLA REGISTRADA: el acuerdo en finitos momentos NO es evidencia a favor de (MC).
+
+== LECTURA DE LA MESA ==
+1. Veredicto registrado: INCONCLUSIVE, por tres réplicas base de lambda=3 inválidas.
+   Es la verdad mecánica de la regla J3 registrada, no una elección.
+2. CERO señal de kill en las 16 celdas: n_spur=0 y S_low=0.0 en todas; los umbrales
+   registrados (n_spur>=4, S_low>=0.25) quedaron a distancia infinita. Es un
+   NO-KILL FINITO, no evidencia del límite.
+3. Causa del déficit CERTIFICADA: BASE-RESOLUTION. El polinomio de grado 80
+   certifica 40 ceros positivos reales; la base perdió z=82.91, cuyo vecino está a
+   1.83 (par apretado del rango alto). No fue multiplicidad par, ni ventana, ni
+   dedup. El fenómeno es EXCLUSIVO de lambda=3 (2, sqrt8, sqrt13 limpias).
+4. Remedio nombrado, NO ejecutado: enmienda A4.1 (override registrado de densidad
+   de escaneo) + re-run de solo los tres puntos inválidos + re-veredicto etiquetado
+   post-A4.1 junto al registrado, jamás en su lugar.
