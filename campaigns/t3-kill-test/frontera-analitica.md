@@ -625,3 +625,71 @@ funcional de Weil sería circular) y el protocolo falsificador G₂/DMV
 aplicando verbatim. El contenido — la cancelación firmada que probaría
 cualquier (RW)_{n,k} incondicionalmente — se mueve cero milímetros y sigue
 gobernado por la barrera.
+
+## La séptima forma terminal: capas cofinales (CD) y la escalera bicolor — auditada 2026-08-06
+
+Formulada por Codex, verificada adversarialmente (CORRECT_WITH_CAVEATS).
+El libro: (TP) ↔ (RATE) ↔ det ↔ (MC) ↔ (SC) ↔ (RW) ↔ **(CD)**.
+
+**Pascal exacto (verificado, también a 30 dígitos):** w_{n,k} = w_{n+1,k} +
+w_{n,k+1} — negro x/(x+y) + rojo y/(x+y) = 1 — y por la identificación
+INCONDICIONAL de (RW) (convergencia absoluta, polos ±ia fuera de la banda:
+aquí es donde a > 1/2 es portante), R_{n,k} = R_{n+1,k} + R_{n,k+1} y el
+iterado (P) sobre antidiagonales, coeficientes C(L,j) = caminos j-negros.
+
+**(CD), ambas direcciones verificadas, con la PRECISIÓN que debe imprimirse:**
+una capa positiva certifica TODO su triángulo (positividad de capas es
+monótona hacia abajo), luego "cofinalmente muchas capas" ⟺ "todas las
+capas" ⟺ batería: **como HIPÓTESIS, (CD) no es ni un milímetro más débil
+que la batería** — a diferencia de RATE_Σ (que sí era estrictamente más
+débil que RATE₀). Lo genuinamente nuevo es solo la GRANULARIDAD de
+verificación: cada certificado es una conjunción FINITA de N+1
+desigualdades, y uno solo cubre el triángulo entero. Séptima forma:
+re-empaquetado.
+
+**La función maestra bicolor:** B_x(u,v) autovalor-a-autovalor =
+(x+y)/((y+x(1−u))(x+y(1−v))); bajo RH, ⟨Ω,(I−uT)^{−1}(I−v(I−T))^{−1}Ω⟩ con
+0 ≤ T ≤ I — negro = T, rojo = I−T, T+(I−T) = I, conmutando (sin sutileza de
+orden): el diccionario literal definitivo del dibujo.
+
+**La escalera de certificados — lo operativamente nuevo, CALIBRADO CON
+NÚMEROS:** cada R_{n,k} es incondicionalmente computable (A_∞ − suma prima;
+A_∞ NO exige formas cerradas nuevas: ĝ = w es racional, digamma contra
+racional en cuadratura rigurosa + los polos exactos w(±i/2) plegados). Por
+tanto: (i) una entrada estrictamente negativa CERTIFICADA refuta RH — en
+seco, gracias a la incondicionalidad de (RW); (ii) una capa completa
+positiva certificada es un teorema finito incondicional que cubre su
+triángulo; (iii) RH = infinitos certificados; NINGÚN número finito la
+prueba. Es el mismo género que el brazo falsificador de
+hausdorff-certificates (las entradas SON su tabla de diferencias cm_check;
+diferencias: entrada explícita sin datos de ceros vs momentos truncados;
+semántica de refutación directa vs condicionada a cola) y que "los primeros
+10¹³ ceros" — pantallas finitas + instrumento de refutación, con umbral de
+detección: un par fuera de línea entra a SEGUNDO orden en el
+desplazamiento (más grueso que verificación directa de ceros).
+**FACTIBILIDAD MEDIDA (30 ceros, dps 30):** esquina de la capa 10,
+R_{10,0}: 4.7e−26 en a=1 (corte primo necesario M ~ 5e50: INFACTIBLE — una
+cancelación de 25 dígitos entre dos lados O(0.1)); 4.2e−20 en a=2
+(M ~ 8e12: frontera-pesado); 1.3e−12 en a=5 (M ~ 440: trivial). **La
+escalera es barata donde las desigualdades son gordas (a grande) e
+imposible donde el empaquetado concentra la aritmética (a → ½⁺).**
+CANDIDATO A CAMPAÑA REGISTRADA (género T4): certificar capas N = 1..N_max
+en a ~ 5 con aritmética de intervalos, 0 excluido por entrada; jueces J1 =
+encierro por entrada, J2 = cross-check lado-ceros SOLO como consistencia
+(la regla dura de mc_moments transfiere verbatim); REGLA DE MUERTE para
+una entrada negativa = potencial refutación de RH = afirmación
+extraordinaria: congelar, reimplementación independiente en segunda
+librería y segunda máquina, auditoría adversarial antes de cualquier
+anuncio (prior abrumador: bug; la regla de roles de retractación aplica —
+el fabricante no puede ser el único auditor).
+
+**SectorGlue (el pegamento, séptimo vestido, correctamente aislado):**
+Z_N(z) = ∫((1−t)+tz)^N dμ — los pesos sectoriales SON las masas
+Bernstein/binomiales de μ, luego construir el modelo reflection-positive
+por volumen con exactamente esos pesos ES producir μ ≥ 0 ES la batería.
+La cadena condicional es válida; el consumo de la FE vía theta lo mantiene
+en L1 y el protocolo G₂/DMV aplica verbatim a todo borrador. La observación
+del flujo inverso es CORRECTA y honra el expediente: el flujo de calor
+hacia delante da ceros reales para t ≥ Λ incondicionalmente (Rodgers–Tao:
+Λ ≥ 0) y no prueba nada en t = 0; la evolución hacia atrás es mal puesta.
+El contenido se mueve cero milímetros; la barrera sigue en pie.
