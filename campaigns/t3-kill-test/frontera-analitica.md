@@ -484,3 +484,80 @@ arbitrariamente pequeño — exige la cancelación firmada primo-vs-arquimediano
 que ninguna contabilidad positiva invariante puede producir. La parrilla
 puede sugerir diagonales candidatas; ningún número finito certifica el
 límite.
+
+## La ruta OS–Ward SU(2)/fermiónica — auditada 2026-08-06 (primera entrada del carril L1)
+
+Formulada por Codex, verificada adversarialmente (CORRECT_WITH_CAVEATS; las
+reparaciones incorporadas aquí). Es la PRIMERA ruta de todos los barridos de
+este programa que entra estructuralmente al carril superviviente L1, con los
+cuatro ingredientes juntos: producto de Euler, ecuación funcional, signos
+fermiónicos y reflexión de área. "Primera" = primera EN NUESTRO BARRIDO, no
+reclamo de prioridad absoluta.
+
+**Pieza 1 — Λ por inclusión-exclusión (verificada, con reparación):**
+Λ(n) = Σ_{p|n} log p · Σ_{S⊆P(n)∖{p}} (−1)^{|S|} = log p·0^{ω(n)−1} — correcta
+para todo n ≥ 1 (p^a sobrevive con log p porque P(n) son primos DISTINTOS;
+ω ≥ 2 cancela; n = 1 vacía). Conteo de círculos: k negros + k(k−1) rojos = k²;
+k = 3 da los 9 del dibujo. REPARACIÓN: la lectura Berezin literal (un
+generador por primo) NO es la integral correcta — extrae solo el coeficiente
+superior; la representación de Grassmann correcta usa un PAR conjugado
+(θ_q, θ̄_q) por primo: Σ_S(−1)^{|S|} = det(I−I) por menores principales.
+Expresable con finiteBerezinWeighted + la expansión de filtro disjunto
+(FiniteBerezin.lean:600-613). Honestidad: el vestido fermiónico carga CERO
+contenido aritmético — entrada de diccionario, no mecanismo.
+
+**Pieza 2 — la identidad área–Mellin (verificada, con corrección de
+abscisa):** con el Casimir del repo (SU2Character.lean:106, n(n+2)/4;
+dimensión m ⟹ (m²−1)/4), e^{−a/4}·Z_tor(a) = Σ_{m≥1}e^{−am²/4}, y
+∫₀^∞ a^{s/2−1}e^{−a/4}Z_tor(a)da = 2^s·Γ(s/2)·ζ(s) **en Re s > 1** (la
+abscisa Re s > 2 de la propuesta es errónea — el integrando ~ a^{s/2−3/2}
+en a→0; y la constante pequeña-a es √(π/a), no √(π/a)/2). Bajo a = 4πt el
+núcleo ES el semi-theta de Riemann y la identidad es VERBATIM la segunda
+prueba de 1859: la función de partición del toro SU(2) con el shift del
+Casimir ES el núcleo theta de Jacobi, y la reflexión modular t↔1/t ES la
+ecuación funcional. Cero matemática nueva como identidad; valor genuino como
+PUENTE: conecta objetos ya formalizados (Casimir, motor de convergencia
+ConvergenceEngine.lean:48 — el paquete WittenZeta de área CERO no cubre
+esto: la serie género-1 DIVERGE en área cero, el área positiva es esencial)
+con completedRiemannZeta de Mathlib, que se define por la misma ruta
+theta–Mellin. Dificultad estimada: días a una semana (nombres exactos de
+lemas Mathlib por confirmar contra checkout vivo antes de pre-registrar).
+
+**Pieza 3 — el filtro de barrera (confirmado, con la cláusula dura):** la
+reflexión modular NO existe para G₂/DMV (sus sumas espectrales carecen de
+simetría modular), y la §3.1 de la barrera exime explícitamente la
+positividad tipo Weil con FE+Euler conjuntos. La ruta pasa el filtro — con
+"usa esencialmente" como cláusula portante: una prueba que MENCIONE theta
+pero cuya contabilidad de positividad corra sobre insumos invariantes se
+transfiere a los falsificados y muere. La exención se gana en el paso donde
+la reflexión se consume y es demostrablemente inasequible para G₂/DMV.
+
+**Pieza 4 — el pegamento, correctamente aislado:** W(f) = ‖Cf‖² + E(QB_f)
+con E(QB_f) = 0 ES la positividad de Weil — CON la reparación: el funcional
+de Weil completo lleva los términos de polo f̂(±i/2) de s = 0,1; la
+identidad mostrada debe plegarlos en el término arquimediano o declarar la
+clase de test restringida, si no, NO es aún la forma RH-equivalente. Weil
+en la clase completa ES RH; Connes–Consani probaron la plaza arquimediana y
+lo semilocal está abierto (estatus a corte de conocimiento). Los teoremas
+citados de cancelación exacta (ValenceCarry decomposition_of_closed;
+finiteBerezin_eq_expect_remainder_of_exactWard, línea 648 exacta) son
+INTERFACES-CONDICIONALES: ward_exact/KillsExact son CAMPOS de hipótesis —
+ningún Q con la propiedad de Ward aritmética existe en los repos. Citas
+exactas como citas de FORMA; falso si la prosa implicara instancia
+construida. `ArithmeticOSWardGlue` es el problema entero, correctamente
+aislado y no contrabandeado — la principal virtud de la propuesta.
+
+**Los dos lemas previos (honestos, incondicionales, sin pegamento):**
+`arithmeticRootShell_eq_vonMangoldt` (días; el núcleo es un one-liner de
+powerset de Mathlib + análisis de casos de vonMangoldt; el trabajo real es
+el vestido Berezin en forma de pares) y `su2TorusArea_mellin_eq_completedZeta`
+(días-semana; UNA definición nueva — Z_tor de área positiva — y contabilidad
+Mellin contra Mathlib). Ninguno toca, debilita ni presupone el pegamento.
+
+**Protocolo de falsificación para cualquier borrador futuro del pegamento
+(obligación de auditoría):** correrlo contra G₂ y DMV. DMV tiene análogo de
+RH FALSO: un pegamento cuyos pasos no consuman la reflexión se transfiere y
+prueba una falsedad ⟹ está mal. G₂ (libre de ceros, batería falsa, sin FE)
+mata argumentos que corran en secreto sobre positividad de log-derivada
+sola. La comprobación de que la reflexión es genuinamente INASEQUIBLE para
+el falsificado (no meramente no-usada) es la obligación del auditor.
