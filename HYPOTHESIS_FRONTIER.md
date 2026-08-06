@@ -45,8 +45,10 @@ tail (`primeTail_bound`, ROADMAP C2). Total abstract core: 8–16 months.
 
 The T3 campaign isolates a sufficient, still open route from the concrete
 CCM ground state to the required transform convergence.  For normalized
-ground state `ξ_λ`, explicit approximant `k_λ`, ground energy `E_λ`, spectral
-gap `Δ_λ > 0`, and normalized Rayleigh excess
+ground state `ξ_λ`, explicit approximant `k_λ`, **simple** ground energy
+`E_λ` (simplicity is load-bearing: the gap step `r_λ ≥ Δ_λ ‖w‖²` fails for a
+degenerate bottom eigenvalue), spectral gap `Δ_λ > 0`, and normalized
+Rayleigh excess
 
 `r_λ = QW_λ[k_λ / ‖k_λ‖] - E_λ`,
 
