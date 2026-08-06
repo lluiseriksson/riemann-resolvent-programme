@@ -205,3 +205,51 @@ Con esto, la ruta hacia RH por este carril queda en su forma terminal: un
 absurdo condicional completo con CUATRO premisas abiertas nombradas, dos
 atajos falsos cerrados con testigos exactos, y el instrumento de falsación
 (la parrilla T3) corriendo. Nada de lo anterior demuestra RH ni lo pretende.
+
+## Cierre del círculo: la caja (TP) y lo que ya está probado sobre ella
+
+La "pista definitiva" negro/rojo — D^k b_n(x₀) = Σ_T W(T), W(T) ≥ 0,
+Σ_T W(T) < ∞ — es EXACTAMENTE el lema (TP) con el que abrió este carril
+(2026-08-05, `reduccion-al-absurdo-riemann.md` §4, y Prop. 4.1 del paper de
+6 pp). Sobre esa caja este programa ya tiene tres resultados auditados que
+cualquier intento futuro debe conocer antes de gastar una hora:
+
+1. **Equivalencia**: [∀n,k: D^k b_n(x₀) ≥ 0] ⟺ RH por cada x₀ > 1/4 fijo
+   (dictamen 2026-08-05; recíproco vía producto de Hadamard par; el paper la
+   contiene entera). Probar la caja ES probar RH — "introducirla como
+   hipótesis sería renombrar RH" es correcto y ya estaba medido.
+2. **Determinación**: la medida representante es ÚNICA (Hausdorff), con
+   átomos exactamente en v_j = x₀/(x₀+γ_j²) — los AGREGADOS de cualquier
+   sistema de pesos válido SON los ceros; solo el reparto entre árboles es
+   libre. El testigo canónico existe bajo RH (un átomo por par de ceros):
+   (TP) es verdadera-pero-dura-de-certificar, no falsa.
+3. **Barrera** (`barrera-bosques-factorizacion-rh.md`, verificada
+   adversarialmente): ninguna prueba de la caja confinada a insumos
+   invariantes bajo sustitución de sistema de primos (positividad de
+   coeficientes Λ ≥ 0, estatus CM de las piezas arquimedianas, combinatoria
+   de factorización/Catalan/polímeros) puede existir — los falsificados G₂ y
+   DMV comparten todos esos insumos y su batería es FALSA. "Probar esta caja
+   directamente desde los primos" con esa caja de herramientas está
+   TEOREMÁTICAMENTE cerrado; una prueba real debe usar entrada no invariante
+   (la ecuación funcional junto al producto de Euler, o localización de
+   ceros).
+
+Lo verificado hoy de la formulación Codex (citas verbatim comprobadas):
+el repo de polímeros declara que empieza DESPUÉS de construido el peso y que
+su forma no negativa es majorante del |coeficiente de Ursell|, no identidad
+firmada (docs/paper/11-limitations.md:3, 02-polymer-systems.md:49); la
+recursión de Schur por primos está en cuarentena como programa
+(IDEAS-3-8-QUARANTINE.md:41); Connes–Kreimer no tiene aún coproducto,
+bialgebra, antípodo ni consumidor (HYPOTHESIS_FRONTIER.md:148) — el
+candidato natural a codificar la cancelación firmada no existe como teorema.
+
+**El puente cuantitativo nuevo entre carriles** (aporte real de esta
+formulación, verificado): la asignación ingenua de actividades primas da
+Σ_{m≤λ²} Λ(m)/√m ~ 2λ (Chebyshev + sumación parcial), CRECIENTE, mientras
+(RATE) exige un defecto o(λ^{−1/2}). Tomar valores absolutos — que es lo
+único que la maquinaria Catalan/polímeros sabe hacer — destruye exactamente
+la cancelación que ambas cajas necesitan. La identidad de cancelación
+firmada específica (de QW_λ en el carril espectral; de los pesos W(T) en el
+carril de bosques) es EL MISMO objeto ausente visto desde dos lados, y en
+ambos la barrera/la estimación 2λ explican por qué ninguna contabilidad
+positiva lo produce.
