@@ -136,3 +136,72 @@ determinantes equivalente). Es un problema de investigación de escala
 años/abierto en la literatura, no una tarea de campaña. La regla permanente:
 la importancia solo se transfiere por reducción probada; este documento
 registra la reducción QUE FALTA, no una que exista.
+
+## El argumento al absurdo completo (formulado por Codex, auditado 2026-08-06)
+
+Cadena condicional VERIFICADA (dos verificadores adversariales independientes,
+Fable 5; veredicto CORRECT_WITH_CAVEATS con las correcciones ya incorporadas
+aquí). Supóngase que Ξ tiene un cero no real z₀. **Elíjase un disco cerrado D
+alrededor de z₀, disjunto del eje real, sin ceros de Ξ en su frontera, Y
+CONTENIDO EN LA SUBFRANJA ABIERTA |Im z| < 1/2** — esta última condición es
+portante (sin ella la palanca λ^η no cierra) y está disponible
+INCONDICIONALMENTE: todo cero de Ξ tiene |Im z| < 1/2 estricto, por el
+producto de Euler en Re s > 1, Hadamard/de la Vallée Poussin en Re s = 1, y
+la ecuación funcional para Re s ≤ 0 — entrada clásica de fuerza PNT que debe
+citarse, no usarse en silencio. Si (RATE) valiera, entonces sobre ∂D:
+|a_λξ̂_λ(z) − k̂_λ(z)| ≤ λ^η‖a_λξ_λ−k_λ‖₁ = O(λ^{η−q}√log λ) → 0; junto con
+k̂_λ → Ξ uniforme en subfranjas cerradas, a_λξ̂_λ → Ξ uniformemente sobre ∂D.
+Como min_{∂D}|Ξ| > 0 (frontera compacta sin ceros), Rouché — o Hurwitz con
+multiplicidades — fuerza un cero de ξ̂_λ dentro de D para λ grande. Si los
+ceros de ξ̂_λ son reales, contradicción con D ∩ ℝ = ∅. Luego Ξ no tendría
+ceros no reales: RH.
+
+El libro de premisas completo (a)–(j) fue auditado; los puntos (b)–(g), (i),
+(j) están ESTABLECIDOS (ceros aislados, Ξ ≢ 0 con testigo ξ(1/2) ≈ 0.497,
+mínimo positivo en frontera, restricción de subfranja a compactos, ξ̂_λ
+entera por soporte compacto, a_λ = ‖k_λ‖₂e^{iθ} ≠ 0, aplicación de Rouché,
+cuantificación sobre z₀). Quedan abiertas EXACTAMENTE CUATRO premisas:
+
+1. **(RATE)**: ‖k_λ‖₂√(2r_λ/Δ_λ) = O(λ^{−q}), q > 1/2 — la caja.
+2. **k̂_λ → Ξ uniforme en subfranjas cerradas** — y CON EL MISMO k_λ de
+   (RATE): el acoplamiento mismo-k_λ es contenido real, no un tecnicismo
+   (para el candidato natural la convergencia es barata, pero entonces (RATE)
+   debe probarse para ESE k_λ; toda la cancelación primo-vs-arquimediano vive
+   en esta pareja).
+3. **Ceros reales de ξ̂_λ para la forma completa** — la transferencia N → ∞
+   (fuente, Sec. 7 nota 2: AFIRMADA, no probada).
+4. **Simplicidad/paridad del estado fundamental y gap Δ_λ > 0** del QW_λ
+   concreto (T1 abierto).
+
+## Dos atajos cerrados (verificados con computación exacta)
+
+**Atajo 1 — "par + Fourier-invariante ⟹ ceros reales": FALSO, exacto.**
+Con F f(y) = ∫f(x)e^{−2πixy}dx y h_n las funciones de Hermite normalizadas
+(F h_n = (−i)ⁿ h_n; h₀ y h₄ pares con autovalor +1): f_C = h₄ + C·h₀ =
+e^{−πx²}(Ax⁴ − Bx² + D_C) con A = (4/3)·2^{3/4}√3·π², B = 2·2^{3/4}√3·π,
+D_C = 2^{1/4}(C + √6/4). Discriminante en w = z²:
+Disc = −(16π²/3)(2√3·C − 3√2) < 0 ⟺ **C > C* = √6/2 ≈ 1.2247**. Para C = 2:
+cuatro ceros no reales z = ±0.51157 ± 0.15157i (para C = 1, los cuatro
+reales — el umbral es agudo). NOTA DE ALCANCE: f_C tiene orden 2 y Ξ orden 1;
+el contraejemplo mata exactamente el atajo ingenuo y NADA contra argumentos
+que usen orden ≤ 1 / género 0 / clase Laguerre–Pólya — donde vive RH.
+
+**Atajo 2 — "PSD/Perron–Frobenius ⟹ simplicidad y gap": CERRADO en (2,6),
+con el testigo correcto.** I es PSD y degenerada; diag(0,ε) es PSD con gap
+arbitrario. Y la matriz implementada QW₂⁶ (ensamblaje del probe registrado,
+dps 30, error de cuadratura ≤ 1e−77, mínima entrada 4.1e−3 — signos
+robustos): 64 positivas / 14 negativas fuera de diagonal (convención
+TRIÁNGULO SUPERIOR; el conjunto completo es 128/28). El conteo mixto NO
+basta por sí solo para excluir un gauge diagonal de signos; el testigo que
+SÍ lo prueba es el ciclo impar: el triángulo (n = −6,−5,−4) tiene sus tres
+aristas negativas (−0.1551, −0.1900, −0.2249), producto −1, lo que mata el
+objetivo todo-no-negativo; el triángulo (−6,−5,−2) tiene producto +1 y mata
+el todo-no-positivo. Frustración masiva: 110 de 286 triángulos. Luego ningún
+cambio diagonal de signos reduce QW₂⁶ a forma Perron–Frobenius. Alcance:
+probado en (λ,N) = (2,6); otros puntos de la parrilla requerirían repetir el
+censo.
+
+Con esto, la ruta hacia RH por este carril queda en su forma terminal: un
+absurdo condicional completo con CUATRO premisas abiertas nombradas, dos
+atajos falsos cerrados con testigos exactos, y el instrumento de falsación
+(la parrilla T3) corriendo. Nada de lo anterior demuestra RH ni lo pretende.
