@@ -355,3 +355,62 @@ ventana; menos que comprobar el día que alguien tenga el límite. No
 transfiere importancia: la equivalencia, no el empaquetado, es lo que estaba
 medido, y el contenido — equidistribución exacta de los espectros finitos
 sobre los ceros — vive íntegro dentro de la condición (2).
+
+## (H₀) y RATE₀: el primer debilitamiento cuantitativo genuino — auditado 2026-08-06
+
+Formulados por Codex, verificados adversarialmente por dos auditores
+independientes (ambos CORRECT_WITH_CAVEATS; reparaciones incorporadas).
+
+**(H₀), verificado:** el criterio de un punto RH ⟺ [Dᵏbₙ(x₀) ≥ 0 ∀n,k] vale
+para TODO x₀ > 0, no solo x₀ > 1/4. Clave: ξ(s) > 0 en todo ℝ — en (0,1) vía
+η(s) = (1−2^{1−s})ζ(s) con η > 0 (serie alternante, lo que PRUEBA la ausencia
+de ceros reales en (0,1) en vez de asumirla) y 1−2^{1−s} < 0, luego
+ζ < 0 y s(s−1) < 0 dan ξ > 0; ξ(1) = 1/2 por la cancelación (s−1)ζ(s);
+s > 1 todo positivo; s ≤ 0 por ecuación funcional. La re-caminata completa
+del Teorema 2.1 del paper con x₀ ∈ (0,1/4] localiza los TRES puntos cuya
+justificación usaba x₀ > 1/4 y los reemplaza (finitud de bₙ; el segmento de
+coincidencia — la frase impresa "because 1/2+y>1" FALLA y se sustituye por
+ξ(1/2±y) > 0 en todo ℝ; nada más depende de x₀). El paper puede REFORZARSE a
+x₀ > 0 con nueve ediciones concretas (registradas en el veredicto del
+auditor; se suman a la cola v2). En x₀ = 1/4 exacto la finitud vive de la
+cancelación (s−1)ζ(s) — debe quedar visible: el criterio se extiende para
+ξ'/ξ, no para ζ'/ζ.
+
+**RATE₀, verificado con tres reparaciones:** si A_λ = ‖k_λ‖₂√(2r_λ/Δ_λ) =
+O(λ^{−q}) para ALGÚN q > 0, junto con las premisas cualitativas (ceros
+reales del límite, k̂_λ → Ξ en un entorno compacto FINO de un segmento
+imaginario, simplicidad/paridad), entonces RH. Reparaciones: (i) interponer
+a₂ < a₃ < min(q,1/2) — la convergencia de derivadas por Cauchy en el borde
+|Im z| = a₂ exige margen; costless. (ii) RE-BASADO que DESACOPLA de (H₀): no
+instanciar (SC) en x₀ = a₂² (< 1/4, rompería la condición depositada) sino
+mantener x₀ = 1/2 — parámetro LIBRE — y mapear el intervalo de convergencia
+a E = [1−2a₂², 1−2a₁²] ⊂ (0,1), con acumulación interior y lejos de z = 1;
+la cota de masa sale gratis de convergencia-en-un-punto + monotonía término
+a término (que usa los ceros reales). (iii) (SC) debe re-enunciarse para
+medidas atómicas INFINITAS de masa acotada (la red UV entra en μ_λ); la
+prueba sobrevive verbatim (Helly/Prokhorov solo pide masa acotada en [0,1]),
+pero la capa Lean ~70% es atómica-finita y no cubre esta instanciación.
+Contabilidad del origen: un cero de ξ̂ en 0 (multiplicidad par) da átomos en
+t = 1 — inocuo con E lejos de z = 1, pero el enunciado debe cargarlo.
+
+**El veredicto de honestidad, y es la frase de la campaña:** la caída
+q > 1/2 → q > 0 es un debilitamiento GENUINO de la condición suficiente. El
+umbral ½ era geografía — perseguir un cero hipotético por toda la franja
+|Im z| < 1/2 con la palanca λ^η. La ruta nueva toca la transformada solo en
+un entorno fino de un segmento imaginario y deja la amplificación al
+principio de identidad. ¿Sobrevive alguna exigencia de anchura? UNA — y
+localizarla es el núcleo honesto: **el ½ migra a la hipótesis x₀ > 1/4 del
+criterio de un punto (1/4 = (1/2)², el peor desplazamiento cuadrado de un
+cero fuera de línea) — pero x₀ es un parámetro LIBRE que el probador elige,
+no una tasa que los aproximantes deban batir. La anchura ahora cuesta cero.**
+Ninguna de las cuatro premisas abiertas se cierra: RATE₀ sigue conteniendo
+toda la aritmética (la contabilidad prima ingenua sigue dando crecimiento
+~2λ, y CUALQUIER decaimiento polinómico — hasta q = 0.01 — sigue exigiendo
+la cancelación firmada que la barrera prueba inaccesible a toda contabilidad
+positiva); la premisa 2 se debilita genuinamente (subfranja fina, Re
+acotado); la transferencia N → ∞ sigue abierta y portante; y la PARIDAD
+queda ahora consumida DOS veces — no solo el gap: sin ella ξ̂_λ no es par ni
+real y la estructura Stieltjes entera falla (itemización nueva). El libro de
+equivalencias (TP) ↔ (RATE) ↔ det ↔ (MC) ↔ (SC) NO debe leerse como que
+q > 1/2 fuera necesario: era un artefacto de la ruta, y esta vuelta lo
+demuestra.
