@@ -1,0 +1,83 @@
+# Piloto T3 tras la reparación A2 — plano Colab, 2026-08-06
+# Runtime: CPU, abierto 07:13, piloto terminado 07:16 (~3 min de ejecución;
+# runtime cerrado tras copiar esta evidencia).
+# Probe: sha256 b3ab8b200d230cf9da2d72bcca9158d997da16bd78af78c5e7fe9e91ef49b716
+# (A2, verificado por gate de integridad en destino), reg=215ba8033b77c03d...,
+# mpmath 1.3.0, numpy 2.0.2, python 3.12.13.
+# Transcripción literal de la salida de la celda.
+
+# t3_probe start  sha256=b3ab8b200d230cf9...  reg=215ba8033b77c03d...  mpmath=1.3.0
+   zetazero progress: k=25 gamma=87.4252746131
+   zetazero progress: k=50 gamma=141.123707404
+   zetazero progress: k=75 gamma=189.416158656
+   zetazero progress: k=100 gamma=233.693404179
+   zetazero progress: k=125 gamma=276.452049503
+   zetazero progress: k=150 gamma=317.734805942
+   zetazero progress: k=175 gamma=357.151302252
+   zetazero progress: k=200 gamma=395.582870011
+   zetazero progress: k=225 gamma=432.138641735
+   zetazero progress: k=250 gamma=469.536004559
+   zetazero progress: k=275 gamma=505.415231742
+   zetazero progress: k=300 gamma=540.631390247
+ zeros cache written: 313 ordinates up to 560.240807497 -> /content/t3-kill-test/results/zeta_zeros_cache.json
+# t3_probe start  sha256=b3ab8b200d230cf9...  reg=215ba8033b77c03d...  mpmath=1.3.0
+== pilot: self-tests (design.md 7.4) ==
+ST1 n=0: W02=2.88539008178 plain=2.88539008178 conj=2.88539008178 -> PASS(plain)
+ST1 n=1: W02=-0.0338587551899 plain=0.0346930316015 conj=-0.0338587551899 -> PASS(conj)
+ST2 n=0: WR_diag(rho-integrals)=2.06230508 spectral(theta')=2.062327857 -> PASS
+ST2 n=1: WR_diag(rho-integrals)=0.3122125473 spectral(theta')=0.3122354665 -> PASS
+ST2b (0,1): WR_offdiag(assembly conv)=-0.2313394171 spectral(theta')=-0.2313165751 -> PASS
+== pilot: points ==
+[2 N=6 base] dps=60 maxdeg=12 msamp=9
+  assembled in 1.06s (quad_err<=1.0e-111)
+  S_IR=0.0098878733756455  B_zero=0.0088340887905128  n_spur=0  J1=PASS  void=[]  invalid=['count_mismatch:4!=6']
+[2 N=6 hi] dps=90 maxdeg=14 msamp=17
+  assembled in 1.87s (quad_err<=1.0e-132)
+  S_IR=0.0098878733756455  B_zero=0.0088340887905128  n_spur=0  J1=PASS  void=[]  invalid=['count_mismatch:4!=6']
+[2 N=8 base] dps=60 maxdeg=12 msamp=9
+  assembled in 1.69s (quad_err<=1.0e-103)
+  S_IR=0.011537087628295  B_zero=0.010834267245754  n_spur=0  J1=PASS  void=[]  invalid=['count_mismatch:6!=8']
+[2 N=8 hi] dps=90 maxdeg=14 msamp=17
+  assembled in 2.68s (quad_err<=1.0e-132)
+  S_IR=0.011537087628295  B_zero=0.010834267245754  n_spur=0  J1=PASS  void=[]  invalid=['count_mismatch:6!=8']
+ST3 info: z_1=14.1347251466 gamma_1=14.1347251417 diff=4.8164e-9  [no gate: source publishes no numbers at pilot scale]
+ST3 info: z_2=21.0220410258 gamma_2=21.0220396388 diff=1.387e-6  [no gate: source publishes no numbers at pilot scale]
+ST3 info: z_3=25.0108578507 gamma_3=25.0108575801 diff=3.0271e-5  [no gate: source publishes no numbers at pilot scale]
+pilot J2 status of last point: INVALID ['count_mismatch:6!=8', 'count_mismatch:6!=8']
+pilot wall total: 108.4 s  (owner rule: measure wall/RSS externally before treating the pilot as local-light)
+T3-VERDICT: INCONCLUSIVE conv=S-half;x0=1;grid=pilot detail={"reason": "pilot never yields a verdict; grid incomplete by construction"}
+
+## Lectura de la mesa (2026-08-06)
+
+1. **Puertas ST: PASS las cinco.** La reparación A2 (doble conteo de c(L) en
+   gamma_L; signo espurio en la referencia ST2b) se sostiene en el plano, no
+   solo en el escritorio. Producción licenciada por el lado del ensamblaje.
+
+2. **CORROBORACIÓN INDEPENDIENTE, no registrada como puerta:** con lambda=2
+   (¡solo potencias de primo <= 4!) y N=6 —una matriz 13x13— los tres primeros
+   ceros del operador reproducen las tres primeras ordenadas de zeta:
+   z_1 = 14.1347251466 vs gamma_1 = 14.1347251417 (diff 4.8e-9),
+   z_2 diff 1.4e-6, z_3 diff 3.0e-5. Los ceros de zeta NO son entrada del
+   cálculo (el operador se arma de Lambda(m) y del factor gamma), así que esto
+   es evidencia independiente de que el ensamblaje es el operador de CCM y no
+   otro objeto. Es también la primera reproducción del fenómeno CCM por esta
+   mesa. Etiqueta: verificado (numérico), NO certificado; sin puerta porque la
+   fuente no publica números a escala piloto.
+
+3. **BLOQUEO NUEVO: `count_mismatch`.** La puerta J2 exige exactamente N ceros
+   positivos de xi-hat; el escaneo encuentra N-2 en los dos puntos y en las dos
+   réplicas (4 de 6, y 6 de 8). Consistente, reproducible, e independiente de
+   la precisión (base e hi dan cifras idénticas). Dos hipótesis a decidir por
+   la mesa de diagnóstico, y solo desde la fuente:
+   (a) la expectativa registrada N es errónea y el número correcto de ceros
+       positivos del compresado D'' es N-2 (o N-1): sería un defecto de
+       ESPECIFICACIÓN de la puerta, enmendable con argumento de fuente;
+   (b) el escaneo pierde dos ceros reales (cerca de los puntos de red, o fuera
+       de la ventana): sería un defecto del PROBE.
+   Nótese que S_IR y n_spur salen coherentes y J1 PASA en los cuatro puntos, lo
+   que hace (a) más probable que (b) — pero eso no lo decide esta mesa.
+
+4. Coste hasta aquí: dos runtimes de ~5 y ~3 minutos. La parrilla de producción
+   (8-24 h) sigue SIN licenciar: un `count_mismatch` en todos los puntos daría
+   INCONCLUSIVE global tras gastar el presupuesto entero. Ese es exactamente el
+   fallo que el piloto existe para evitar.

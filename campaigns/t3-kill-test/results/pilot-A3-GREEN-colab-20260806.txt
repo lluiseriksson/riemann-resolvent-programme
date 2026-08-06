@@ -1,0 +1,67 @@
+# Piloto T3 tras la reparación A3 — VERDE. Plano Colab, 2026-08-06 07:48
+# Probe: sha256 b173fec9e6dc8447f99c7e6a79abfe1eede38d418de4ee90f64eccf849d87b34
+# (A3, gate de integridad verificado en destino), reg=215ba8033b77c03d... (SIN
+# tocar en ninguna enmienda), mpmath 1.3.0, numpy 2.0.2, python 3.12.13.
+# Runtime CPU abierto 07:43. Transcripción literal:
+
+# t3_probe start  sha256=b173fec9e6dc8447...  reg=215ba8033b77c03d...  mpmath=1.3.0
+ zeros cache written: 313 ordinates up to 560.240807497
+== pilot: self-tests (design.md 7.4) ==
+ST1 n=0: W02=2.88539008178 plain=2.88539008178 conj=2.88539008178 -> PASS(plain)
+ST1 n=1: W02=-0.0338587551899 plain=0.0346930316015 conj=-0.0338587551899 -> PASS(conj)
+ST2 n=0: WR_diag(rho-integrals)=2.06230508 spectral(theta')=2.062327857 -> PASS
+ST2 n=1: WR_diag(rho-integrals)=0.3122125473 spectral(theta')=0.3122354665 -> PASS
+ST2b (0,1): WR_offdiag(assembly conv)=-0.2313394171 spectral(theta')=-0.2313165751 -> PASS
+== pilot: points ==
+[2 N=6 base] dps=60 maxdeg=12 msamp=9
+  assembled in 0.99s (quad_err<=1.0e-111)
+  S_IR=0.0105056431388434  B_zero=0.0088340887905128  n_spur=0  J1=PASS  void=[]  invalid=[]
+[2 N=6 hi] dps=90 maxdeg=14 msamp=17
+  assembled in 2.48s (quad_err<=1.0e-132)
+  S_IR=0.0105056431388434  B_zero=0.0088340887905128  n_spur=0  J1=PASS  void=[]  invalid=[]
+[2 N=8 base] dps=60 maxdeg=12 msamp=9
+  assembled in 1.79s (quad_err<=1.0e-103)
+  S_IR=0.0119641247205524  B_zero=0.0108342672457542  n_spur=0  J1=PASS  void=[]  invalid=[]
+[2 N=8 hi] dps=90 maxdeg=14 msamp=17
+  assembled in 2.47s (quad_err<=1.0e-132)
+  S_IR=0.0119641247205524  B_zero=0.0108342672457542  n_spur=0  J1=PASS  void=[]  invalid=[]
+ST3 info: z_1=14.1347251466 gamma_1=14.1347251417 diff=4.8164e-9
+ST3 info: z_2=21.0220410258 gamma_2=21.0220396388 diff=1.387e-6
+ST3 info: z_3=25.0108578507 gamma_3=25.0108575801 diff=3.0271e-5
+pilot J2 status of last point: OK []
+pilot wall total: 91.8 s
+T3-VERDICT: INCONCLUSIVE conv=S-half;x0=1;grid=pilot detail={"reason": "pilot never yields a verdict; grid incomplete by construction"}
+
+## PREDICCIONES PRE-REGISTRADAS vs MEDIDO (colab_notebook.md celda 4, escritas
+## ANTES de esta ejecución por la mesa adjudicadora)
+
+| predicción registrada                    | medido en el plano        | ok |
+|------------------------------------------|---------------------------|----|
+| cinco puertas ST PASS, sin cambios        | las cinco PASS            | SI |
+| invalid=[] en los dos puntos              | invalid=[] x4 réplicas    | SI |
+| S_IR(N=6) = 0.010505643138843             | 0.0105056431388434        | SI |
+| S_IR(N=8) = 0.011964124720552             | 0.0119641247205524        | SI |
+| n_spur = 0, S_low = 0                     | n_spur=0                  | SI |
+| verdicto sigue INCONCLUSIVE grid=pilot    | idéntico                  | SI |
+
+Predicción exacta cumplida en las seis filas. **PRODUCCIÓN LICENCIADA.**
+
+## Notas
+
+* La cuenta de ceros pasa ahora (6/6 y 8/8) porque el instrumento se
+  ensanchó, NO porque el juez se relajara: la puerta sigue exigiendo
+  exactamente N, el mismo N, y ahora además caza raíces sobre los puntos de
+  red que el escaneo antiguo no podía ver estructuralmente.
+* S_IR subió +6.3% (N=6) y +3.7% (N=8) al recuperar los dos ceros altos que
+  faltaban; n_spur y S_low no se movieron (los ceros recuperados son de alta
+  energía, z >= 42), así que el defecto nunca sesgó el instrumento de kill:
+  lo bloqueaba en J2.a.
+* ST3 (informativo, sin puerta): la coincidencia con los ceros de zeta se
+  mantiene tras las dos reparaciones — z_1 a 4.8e-9 de gamma_1 con una matriz
+  13x13 y solo potencias de primo <= 4.
+
+## Producción lanzada
+
+07:49 — `python t3_probe.py --lambdas 2,sqrt8,3,sqrt13 --sizes 20,40,80,120`
+en el mismo runtime (parrilla registrada completa, 16 puntos x 2 réplicas,
+checkpoints reanudables). Estimación del diseño: 8-24 h.
