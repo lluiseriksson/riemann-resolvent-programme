@@ -414,3 +414,73 @@ real y la estructura Stieltjes entera falla (itemización nueva). El libro de
 equivalencias (TP) ↔ (RATE) ↔ det ↔ (MC) ↔ (SC) NO debe leerse como que
 q > 1/2 fuera necesario: era un artefacto de la ruta, y esta vuelta lo
 demuestra.
+
+## RATE_Σ: subsecuencial + eliminación de la transferencia N→∞ — auditado 2026-08-06
+
+Formulado por Codex, verificado adversarialmente (CORRECT_WITH_CAVEATS; siete
+reparaciones incorporadas). **Segundo debilitamiento genuino, en dos ejes.**
+
+**Criterio (forma reparada).** Sea una diagonal cofinal (λ_j, N_j) y el
+defecto Galerkin 𝔡_j = ‖k_j‖₂√(2r_j/Δ_j) + 2·tail_j — la forma EXACTA de
+`rayleighGapDefect` (SpectralDefect.lean:19-21, verbatim), con las
+definiciones FIJADAS por el verificador (portantes): r_j = exceso de Rayleigh
+del trial PROYECTADO normalizado P_N k_j/‖P_N k_j‖ contra la forma FINITA y
+su autovalor mínimo; tail_j = ‖(1−P_N)k_j‖_{L²(d*u)}; Δ_j = gap finito. (Si
+r_j se computa sobre k_j con la forma completa, los términos cruzados NO
+están controlados por la cola L² y la desigualdad probada no es la usada.)
+Hipótesis: (P1) fundamentales finitos simples, pares y NO-VOID
+(δ_N(ξ_j) ∝ Σξ_n ≠ 0 — sin ello Thm 5.10 no licencia la identificación de
+ceros; ξ_0 ≠ 0 visible) a lo largo de la diagonal; (P2) k̂_j → Ξ uniforme en
+una pieza compacta de subfranja |Im z| ≤ a₃ con Re acotado que contenga un
+entorno 2D del segmento i[a₁,a₂], a₂ < a₃ estricto; (P3) RATE_Σ:
+λ_j^{a₃}√(log λ_j)·𝔡_j → 0 — SOLO en la diagonal. Entonces RH.
+
+**La desigualdad Galerkin finita, re-derivada y demostrable:**
+‖a_jξ_j − k_j‖₂ ≤ 𝔡_j con a_j = ‖k_j‖₂e^{iθ_j} — proyectar, cota de
+solapamiento espectral en E_N (matriz simétrica finita, sin problemas de
+dominio), triángulo con ‖k‖−‖Pk‖ ≤ tail (Pitágoras, SIN hipótesis extra
+tipo tail ≤ ‖k‖/2). **El factor 2 de la cola es exactamente lo que cuesta
+elegir la fase con la norma completa.** Familia Temple/Kato, estándar —
+pero LEMA-POR-PROBAR: el Lean solo tiene la no-negatividad; la cota de
+aproximación no está formalizada en ninguna parte.
+
+**La eliminación, confirmada:** la vieja premisa 3 (ceros reales del límite
+λ vía la convergencia det_reg AFIRMADA-no-probada de la nota 2) desaparece
+— la cadena nunca toca el autovector de la forma completa. Los ceros reales
+entran por el Thm 5.10 FINITO (PROBADO en la fuente dado simple+par por
+punto; asimetría finito-vs-completo exactamente como el registro la tenía).
+(P2) es sobre aproximantes elegidos por el probador: sin re-entrada.
+Calibración honesta: (P1)-cofinal sigue siendo un enunciado infinito — una
+familia infinita de hechos finitos CERTIFICABLES por instancia (aritmética
+de intervalos; el aparato J2 ya comprueba instancias), más débil EN CLASE
+que un límite analítico uniforme afirmado; "más fácil" solo en ese sentido
+por-instancia.
+
+**Estrictez confirmada:** 𝔡 ~ λ^{-1} en una subsucesión y 1 fuera satisface
+RATE_Σ y ningún RATE₀ global; recíprocamente RATE₀ ⟹ RATE_Σ en cualquier
+diagonal (el a₃ < min(q,½) de la reparación anterior reaparece). RATE_Σ =
+RATE₀-restringido-a-la-diagonal; la cadena previa es el caso especial. Nota:
+sigue exigiendo decaimiento POLINÓMICO en la diagonal (algún a₃' > 0); no
+admite sub-polinómico.
+
+**Instanciación:** (SC) en su versión atómico-INFINITA de masa acotada (los
+átomos UV se acumulan en t = 0; la cota de masa sale de convergencia en un
+punto + monotonía término a término — que consume los ceros reales), con el
+re-basado x₀ = 1/2 y E = [1−2a₂², 1−2a₁²]; la capa Lean ~70% es
+atómico-finita y NO cubre esta instanciación (la nota de honestidad
+transfiere verbatim). Entradas clásicas citadas, no silentes: ξ > 0 en ℝ
+(sección (H₀)) para el paso log-derivada; 0 < β < 1, γ ≠ 0 para la
+holomorfía en el paso de identidad. k_j ≠ 0 portante (a_j ≠ 0).
+
+**El libro de obligaciones queda en TRES:** (1) simplicidad+paridad+no-VOID
+en una cofinal de matrices finitas; (2) gap/cola con RATE_Σ; (3) k̂_j → Ξ
+del MISMO aproximante en la subfranja fina. **Veredicto de honestidad:** el
+debilitamiento reduce la SUPERFICIE DE VERIFICACIÓN (subsecuencial, franja
+fina, entrada finita de ceros reales); mueve el CONTENIDO cero milímetros.
+El acoplamiento mismo-k sigue intacto y sigue siendo donde vive TODA la
+aritmética; la paridad sigue consumida dos veces (ahora a nivel finito); y
+la barrera sigue gobernando en pleno: certificar RATE_Σ — incluso con a₃
+arbitrariamente pequeño — exige la cancelación firmada primo-vs-arquimediano
+que ninguna contabilidad positiva invariante puede producir. La parrilla
+puede sugerir diagonales candidatas; ningún número finito certifica el
+límite.
