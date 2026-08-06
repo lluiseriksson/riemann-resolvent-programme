@@ -298,3 +298,60 @@ evidencia a favor de (MC); el testigo `mc_moments.py` (sha
 lectura, líneas MC-WITNESS, sin puertas) es un FALSIFICADOR y sonda de
 consistencia: una desviación sistemática mataría el brazo concreto; la
 convergencia observada no licencia nada.
+
+## La quinta forma terminal: compacidad (SC) = bridgeA∘bridgeC — auditada 2026-08-06
+
+Formulada por Codex, verificada adversarialmente (CORRECT_WITH_CAVEATS; las
+DOS reparaciones del verificador ya incorporadas al enunciado):
+
+**Criterio (SC), forma reparada.** Sea x₀ > 1/4 (portante: el criterio de un
+punto es por x₀ > 1/4, ausente en la formulación original), T_m = x₀(D_m²+x₀)^{−1},
+F_m(z) = (1/2x₀)Tr[T_m(I−zT_m)^{−1}] = ½Tr(D_m²+x₀(1−z))^{−1} (formas
+verificadas iguales; holomorfa en |z| < 1). Si (1) sup_m F_m(0) < ∞ y
+(2) F_m(z) → S_Ξ(x₀(1−z)) en un conjunto E ⊂ (−1,1) **con punto de
+acumulación EN (−1,1)** (segunda reparación: E = {1−1/n} rompe el argumento
+tal como estaba — la parte Stieltjes no es holomorfa en z = +1 si μ carga
+t = 1), entonces RH. Prueba: masas = F_m(0) acotadas ⟹ Helly en [0,1] ⟹
+límite débil subsecuencial μ ⟹ transformadas convergen puntualmente en
+(−1,1) ⟹ identidad sobre un entorno conexo de (−1,1) donde S_Ξ(x₀(1−z)) es
+holomorfa INCONDICIONALMENTE (0 < β < 1 y γ ≠ 0 impiden singularidad en w
+real positivo — mismas entradas clásicas fuerza-PNT ya citables del registro)
+⟹ coeficientes de Taylor = momentos de Hausdorff ⟹ batería ⟹ RH.
+
+**Identificación bridgeC, precisa.** Condición (1) ES
+`PrimeResolventData.uniform_bound` VERBATIM (misma convención S-half, mismo
+x₀ marcado — el factor 2 respecto a la traza prosa-T3 viaja con el número,
+nota U9). Condición (2) ocupa el hueco de T4 pero es MÁS DÉBIL en forma
+(puntual sobre E vs uniforme en ventana) y MÁS FUERTE en contenido (nombra a
+S_Ξ, que el repo difiere a bridgeC — `approx` solo acopla S a los
+aproximantes primos P). (SC) no instancia literalmente
+bridgeC → SlitPlaneStieltjesExtension: es una descarga alternativa del
+COMPUESTO bridgeA∘bridgeC, con bridgeA sustituido por el criterio de un
+punto (núcleo Lagarias 1999) en vez de la ruta de reflexión — aunque la μ
+límite sí factoriza como testigo de SlitPlaneStieltjesExtension si se desea.
+
+**Lo notable: ~el 70% de la prueba de (SC) YA está en Lean** en
+`riemann-one-point-resolvent` para datos atómicos finitos — la construcción
+de la medida compactificada, la igualdad EXACTA masa = valor en un punto
+(`compactifiedStieltjesFiniteMeasure_mass_eq`), la compacidad de Helly vía
+Prokhorov, la continuidad del núcleo en todo el plano cortado, la identidad
+de transformadas, débil ⟹ puntual, y la batería finita de Hausdorff. NO
+formalizado (y los ficheros lo declaran): extracción de subsucesión
+(metrizabilidad), el puente del principio de identidad de E al disco, la
+identidad de momentos a nivel de medida, TODA identificación con S_Ξ
+(riemannXi no aparece en el subproyecto), y el criterio de un punto. La
+prosa de nueve vueltas ha convergido sobre la interfaz que el programa ya
+tenía tipada — señal de diseño correcto, no casualidad.
+
+**Calibración de honestidad (veredicto del verificador):** (SC) es la QUINTA
+forma equivalente — dado (1), (2) sobre E equivale a (MC) (todo límite débil
+subsecuencial iguala su transformada a S_Ξ en E ⟹ por identidad +
+determinación ES la medida de los ceros ⟹ convergencia de toda la sucesión y
+de todos los momentos; el recíproco es inmediato). El libro queda:
+(TP) ↔ (RATE) ↔ determinantes ↔ (MC) ↔ (SC). Lo que SÍ es genuino:
+**economía de prueba en el lado de verificación** — puntual-sobre-E con una
+acumulación interior basta donde el `approx` registrado pedía uniforme en
+ventana; menos que comprobar el día que alguien tenga el límite. No
+transfiere importancia: la equivalencia, no el empaquetado, es lo que estaba
+medido, y el contenido — equidistribución exacta de los espectros finitos
+sobre los ceros — vive íntegro dentro de la condición (2).
