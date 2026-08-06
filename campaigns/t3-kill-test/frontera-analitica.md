@@ -253,3 +253,48 @@ firmada específica (de QW_λ en el carril espectral; de los pesos W(T) en el
 carril de bosques) es EL MISMO objeto ausente visto desde dos lados, y en
 ambos la barrera/la estimación 2λ explican por qué ninguna contabilidad
 positiva lo produce.
+
+## La cuarta forma terminal: convergencia de momentos (MC) — auditada 2026-08-06
+
+Formulada por Codex, verificada adversarialmente (Fable 5, veredicto
+CORRECT_WITH_CAVEATS con las correcciones incorporadas aquí). Para D_m
+autoadjunto finito y b_n^(m) = (x₀ⁿ/2)·Tr(D_m²+x₀I)^{−(n+1)}:
+
+**Identidad incondicional (verificada, álgebra exacta):** con R = (D²+x₀)^{−1}
+vale I − x₀R = D²R, y de ahí D^k b_n^(m) = ½Tr[x₀ⁿD^{2k}R^{n+k+1}] ≥ 0 —
+factores conmutantes PSD, autovalor a autovalor x₀ⁿz^{2k}/(z²+x₀)^{n+k+1} ≥ 0.
+Forma OS equivalente: b_n = ⟨Ω,TⁿΩ⟩ con T = x₀R, 0 ≤ T ≤ I, y
+D^k b_n = ⟨Ω,Tⁿ(I−T)^kΩ⟩ ≥ 0. Cero contenido aritmético: vale para CUALQUIER
+familia autoadjunta finita.
+
+**Criterio (MC), verificado:** si b_n^(m) → b_n^Ξ(x₀) para CADA n (en un solo
+x₀ > 1/4), entonces D^k b_n^Ξ ≥ 0 para todo n,k (cada desigualdad involucra
+finitos términos — sin convergencia dominada, sin uniformidad, sin tasa: la
+limpieza técnica genuina de esta forma) y el criterio de Hausdorff de un punto
+da RH. Inventario completo de hipótesis: (a) un x₀ fijo; (b) el límite para
+TODO n; (c) finitud (automática); (d) la identificación b_n^Ξ con las
+derivadas de S_Ξ — donde entra TODA la aritmética; (e) el criterio de un
+punto (re-derivado independientemente por el verificador).
+
+**Calibración de honestidad (la corrección importante):** con T = x₀R,
+b_n^(m) = (1/2x₀)·Tr T^{n+1}, así que (MC) dice exactamente que las medidas
+espectrales ponderadas μ_m = (1/2x₀)Σ t_iδ_{t_i} convergen débilmente (en
+[0,1], momentos = débil) a la ÚNICA medida de Hausdorff de b_n^Ξ — la medida
+SOPORTADA EN LOS CEROS, átomo EN v_j = x₀/(x₀+γ_j²) con MASA 1/(x₀+γ_j²) por
+par. **(MC) es re-empaquetado, no reducción**: quita el andamiaje (franjas,
+q>1/2, Rouché) y deja intacto el contenido — equidistribución exacta de los
+espectros finitos sobre los ceros. Cuarta forma equivalente:
+(TP) ↔ (RATE) ↔ determinantes ↔ (MC).
+
+**Matices registrados:** (1) la dirección del límite (λ,N) → m debe
+registrarse para la familia biparamétrica (cautela U6); (2) b_0^(m) = S_IR
+[conv:S-half] EXACTO solo si 0 no es autovalor de D″ (ξ_0 ≠ 0) — un punto así
+falla la puerta de conteo y es INVALID, luego en todo punto J2-válido la
+identidad es exacta; y S_IR es la MITAD de la traza de la prosa-T3 (factor 2,
+nota U9); (3) **regla dura del testigo:** la monotonía completa son
+INFINITAS desigualdades — el acuerdo numérico en finitos momentos NUNCA es
+evidencia a favor de (MC); el testigo `mc_moments.py` (sha
+4a2821a9d86703cc5e47ba428fa1b211477ad5db3bf812ade2b82e974ddf3033, solo
+lectura, líneas MC-WITNESS, sin puertas) es un FALSIFICADOR y sonda de
+consistencia: una desviación sistemática mataría el brazo concreto; la
+convergencia observada no licencia nada.
