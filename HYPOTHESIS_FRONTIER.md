@@ -41,6 +41,34 @@ tail (`primeTail_bound`, ROADMAP C2). Total abstract core: 8–16 months.
   is not enough: the whole spectrum must be controlled under the weight
   `1/(γ² + x)`.
 
+### Campaign refinement (2026-08-06): the critical spectral rate
+
+The T3 campaign isolates a sufficient, still open route from the concrete
+CCM ground state to the required transform convergence.  For normalized
+ground state `ξ_λ`, explicit approximant `k_λ`, **simple** ground energy
+`E_λ` (simplicity is load-bearing: the gap step `r_λ ≥ Δ_λ ‖w‖²` fails for a
+degenerate bottom eigenvalue), spectral gap `Δ_λ > 0`, and normalized
+Rayleigh excess
+
+`r_λ = QW_λ[k_λ / ‖k_λ‖] - E_λ`,
+
+the spectral theorem and Cauchy--Schwarz on
+`L²([λ⁻¹,λ], du/u)` give a scalar `a_λ` with
+
+`‖a_λ ξ_λ - k_λ‖₁ ≤ 2 ‖k_λ‖₂ sqrt(log λ * r_λ / Δ_λ)`.
+
+Consequently, a bound
+
+`‖k_λ‖₂ sqrt(2 r_λ / Δ_λ) = O(λ^{-q})` for some `q > 1/2`
+
+beats the Mellin substrip loss for every `|Im z| ≤ η < 1/2`.  This identifies
+the mathematical role of `BeatsHalfThreshold` and `rayleighGapDefect` in the
+`riemann-prime-resolvent` sibling.  It does **not** discharge T1 or T4: no
+current satellite proves the required gap/rate for the concrete `QW_λ`, and
+the independent convergence of the explicit approximant to `Xi` is still
+required.  Full derivation and falsifier are recorded in
+`campaigns/t3-kill-test/frontera-analitica.md`.
+
 ## Inherited cautions
 
 - **Two-parameter (R, N) caution** (from the Weil/W-Schur route, Card 2):
