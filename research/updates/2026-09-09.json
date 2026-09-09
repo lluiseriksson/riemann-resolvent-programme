@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "reviewed_on": "2026-09-09",
+  "window": {
+    "start": "2026-09-03",
+    "end": "2026-09-09",
+    "calendar_week_start": "2026-09-07"
+  },
+  "coverage": "targeted, non-exhaustive",
+  "repository_card": {
+    "repository": "lluiseriksson/riemann-resolvent-programme",
+    "source_ids": [
+      "2609.02882",
+      "2609.07918",
+      "2609.00537"
+    ],
+    "local_anchors": [
+      "README.md",
+      "HYPOTHESIS_FRONTIER.md",
+      "SOURCES.md"
+    ],
+    "frontier": "bridgeA, bridgeC, primeTail_bound and T1-T4 remain source-specific carried inputs. The newer prime-resolvent monorepo owns the integrated construction narrative.",
+    "bridge_hypothesis": "Use the new Hilbert-space inequality as a bounded independent target, with an explicit comparison to the slit-plane criterion. A lower density of real spectral parameters does not construct a holomorphic Stieltjes extension.",
+    "next_finite_task": "Extract the finite-multiset inequality with conjugation, support and kernel normalization intact. Try finite counterexamples to any proposed implication from that inequality to full Hausdorff positivity.",
+    "falsifier": "Reject a transfer if an off-line conjugate pair survives its hypotheses, or if bridgeA/bridgeC merely reappear under new names. Existing source gates remain mandatory.",
+    "related_repositories": [
+      "riemann-prime-resolvent",
+      "hausdorff-certificates"
+    ],
+    "proposal_status": "speculative; not executed or formally verified",
+    "eliminated_hypotheses": [],
+    "inspected_commit": "f08118be0004eb69966c186e78cc7282c7552da8"
+  },
+  "sources": [
+    {
+      "id": "arxiv:2609.02882",
+      "arxiv_id": "2609.02882",
+      "title": "A new proof that more than $2/3$ of the zeros of the Riemann zeta function are simple and on the critical line",
+      "authors": [
+        "Lamzouri, Youness"
+      ],
+      "first_submitted": "2026-09-02",
+      "latest_revision": "2026-09-08",
+      "reviewed_version": "v2",
+      "url": "https://arxiv.org/abs/2609.02882v2",
+      "doi": "10.48550/arXiv.2609.02882",
+      "verified_on": "2026-09-09",
+      "recency": "revised-in-trailing-week",
+      "publication_status": "preprint; peer-review status not established in this sweep",
+      "evidence_level": "literature",
+      "review_depth": "v2: Theorem 1.1 and Proposition 2.1; submission history",
+      "source_claim": "Lamzouri reports unconditional asymptotic proportions above 67.25% for simple critical-line zeros and above 83.62% for distinct zeros. Version 2 adds an 88.76% bound for zeros that are simple OR on the critical line, plus a bound on the average of those two proportions. The mechanism is a Hilbert-space kernel inequality.",
+      "limits": "The union bound is not an 88.76% critical-line bound. None of these proportions proves RH or full prime-resolvent positivity. Version 2 was posted on 8 September; the first submission was 2 September.",
+      "tags": [
+        "zeta",
+        "positivity",
+        "pair-correlation",
+        "hilbert-space"
+      ],
+      "abstract_page_sha256": "9d69b130383f67c9c4dddfc31643e2d3246767126022b15043fd0da1166e93a8",
+      "reviewed_full_text_sha256": "7be30233c820783a4771d33318e2c29ad782ce4fc950012911b787cb870f7ff6",
+      "reuse": "Bibliographic metadata and original synthesis only; no permission to train on linked full text is inferred."
+    },
+    {
+      "id": "arxiv:2609.07918",
+      "arxiv_id": "2609.07918",
+      "title": "Simple critical zeros and distinct zeros of the Riemann zeta-function in short intervals",
+      "authors": [
+        "Wang, Biao"
+      ],
+      "first_submitted": "2026-09-07",
+      "latest_revision": "2026-09-07",
+      "reviewed_version": "v1",
+      "url": "https://arxiv.org/abs/2609.07918v1",
+      "doi": "10.48550/arXiv.2609.07918",
+      "verified_on": "2026-09-09",
+      "recency": "new-this-calendar-week",
+      "publication_status": "preprint; peer-review status not established in this sweep",
+      "evidence_level": "literature",
+      "review_depth": "v1: Theorems 1.1 and 2.2; Proposition 2.1",
+      "source_claim": "Wang adapts the kernel method to intervals of length T^theta. Theorem 1.1 gives theta-dependent lower bounds; Theorem 2.2 supplies a short-interval pair-correlation estimate.",
+      "limits": "The useful bound depends on theta and is asymptotic. It is not the global 67.25% bound for every short interval or a certified finite-height zero count.",
+      "tags": [
+        "zeta",
+        "local-global",
+        "pair-correlation"
+      ],
+      "abstract_page_sha256": "e6eff49c01778ad6a6e5008230cdc8026b4ef2603108482209975a6f35cd164d",
+      "reviewed_full_text_sha256": "07ceef8d0b79dde80c639873430911ff1685b1721326b0ece9ef8aa5744045a8",
+      "reuse": "Bibliographic metadata and original synthesis only; no permission to train on linked full text is inferred."
+    },
+    {
+      "id": "arxiv:2609.00537",
+      "arxiv_id": "2609.00537",
+      "title": "Explicit Exponential Sum Estimates and Approximate Functional Equations for the Zeta Function",
+      "authors": [
+        "Dhiman, Natasha",
+        "Kadiri, Habiba",
+        "Quesada-Herrera, Emily"
+      ],
+      "first_submitted": "2026-09-01",
+      "latest_revision": "2026-09-01",
+      "reviewed_version": "v1",
+      "url": "https://arxiv.org/abs/2609.00537v1",
+      "doi": "10.48550/arXiv.2609.00537",
+      "verified_on": "2026-09-09",
+      "recency": "background",
+      "publication_status": "preprint; peer-review status not established in this sweep",
+      "evidence_level": "literature",
+      "review_depth": "Abstract and submission history",
+      "source_claim": "Explicit exponential-sum estimates sharpen error terms in approximate functional equations for zeta in specified ranges.",
+      "limits": "The remainder belongs to an approximate functional equation. It cannot replace this programme's prime-tail majorant without an exact observable and parameter translation. First posted 1 September.",
+      "tags": [
+        "zeta",
+        "explicit-constants",
+        "error-budgets"
+      ],
+      "abstract_page_sha256": "cd31458196451174577474c49474a452d1c46d60745d61c33572e12427e5a7e4",
+      "reviewed_full_text_sha256": null,
+      "reuse": "Bibliographic metadata and original synthesis only; no permission to train on linked full text is inferred."
+    }
+  ]
+}

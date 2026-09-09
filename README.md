@@ -1,5 +1,8 @@
 # riemann-resolvent-programme
 
+<!-- RESEARCH-UPDATE-2026-09-09 -->
+> **Research update · 9 September 2026:** [verified source cards, limits and next experiments](research/updates/2026-09-09.md) · [machine-readable dossier](research/updates/2026-09-09.json).
+
 A **sibling programme** to [THE-ERIKSSON-PROGRAMME](https://github.com/lluiseriksson/THE-ERIKSSON-PROGRAMME)
 (Yang–Mills), not an appendix of it: same discipline — a sorry-free,
 axiom-audited Lean core of *assemblies*, explicitly named *carried inputs*
